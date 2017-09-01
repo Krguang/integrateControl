@@ -275,6 +275,9 @@
     <ClInclude Include="..\Inc\dimmer.h">
       <Filter>Header files\Inc</Filter>
     </ClInclude>
+    <ClInclude Include="..\Inc\gasCollect.h">
+      <Filter>Header files\Inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Src\adc.c">
@@ -443,6 +446,9 @@
       <Filter>Source files\Src</Filter>
     </ClCompile>
     <ClCompile Include="..\Src\dimmer.c">
+      <Filter>Source files\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\gasCollect.c">
       <Filter>Source files\Src</Filter>
     </ClCompile>
   </ItemGroup>

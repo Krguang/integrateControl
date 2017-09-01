@@ -119,8 +119,10 @@ void UsartRxMonitor() {
 				BusIdleCount++;							//总线空闲计时+1
 				if (BusIdleCount >= 4) {					//如果空闲计时>=4
 					BusIdleCount = 0;						//空闲计时置零
+					HAL_GPIO_WritePin(GPIOD, GPIO_PIN_1, GPIO_PIN_SET);
 					ModbusDecode(Usart1ReceiveBuffer.BufferArray, Usart1ReceiveBuffer.BufferLen);	//解码
 					Usart1ReceiveBuffer.BufferLen = 0;											//用完后，缓存数组长度清零
+					HAL_GPIO_WritePin(GPIOD, GPIO_PIN_1, GPIO_PIN_RESET);
 				}
 			}
 		}

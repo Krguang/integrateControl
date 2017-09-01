@@ -60,6 +60,7 @@ extern ADC_HandleTypeDef hadc1;
 extern void _Error_Handler(char *, int);
 
 void MX_ADC1_Init(void);
+uint16_t Get_Adc_Average(uint32_t, uint8_t);
 
 /* USER CODE BEGIN Prototypes */
 

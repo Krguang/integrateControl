@@ -131,6 +131,7 @@
     <ClInclude Include="..\Inc\adc.h" />
     <ClInclude Include="..\Inc\dac.h" />
     <ClInclude Include="..\Inc\dimmer.h" />
+    <ClInclude Include="..\Inc\gasCollect.h" />
     <ClInclude Include="..\Inc\gpio.h" />
     <ClInclude Include="..\Inc\i2c.h" />
     <ClInclude Include="..\Inc\main.h" />
@@ -188,6 +189,7 @@
     <ClCompile Include="..\Src\adc.c" />
     <ClCompile Include="..\Src\dac.c" />
     <ClCompile Include="..\Src\dimmer.c" />
+    <ClCompile Include="..\Src\gasCollect.c" />
     <ClCompile Include="..\Src\gpio.c" />
     <ClCompile Include="..\Src\i2c.c" />
     <ClCompile Include="..\Src\main.c" />

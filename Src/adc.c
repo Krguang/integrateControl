@@ -12,7 +12,7 @@ ADC_HandleTypeDef hadc1;
 /* ADC1 init function */
 void MX_ADC1_Init(void)
 {
-  ADC_ChannelConfTypeDef sConfig;
+  //ADC_ChannelConfTypeDef sConfig;
 
     /**Common config 
     */
@@ -23,21 +23,17 @@ void MX_ADC1_Init(void)
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
   hadc1.Init.NbrOfConversion = 1;
-  if (HAL_ADC_Init(&hadc1) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
+  HAL_ADC_Init(&hadc1);
 
     /**Configure Regular Channel 
     */
+
+  /*
   sConfig.Channel = ADC_CHANNEL_0;
   sConfig.Rank = 1;
   sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
-  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
-
+  HAL_ADC_ConfigChannel(&hadc1, &sConfig);
+  */
 }
 
 void HAL_ADC_MspInit(ADC_HandleTypeDef* adcHandle)
@@ -70,6 +66,8 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* adcHandle)
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
+	HAL_NVIC_SetPriority(ADC1_2_IRQn, 0, 0);
+	HAL_NVIC_EnableIRQ(ADC1_2_IRQn);
   /* USER CODE BEGIN ADC1_MspInit 1 */
 
   /* USER CODE END ADC1_MspInit 1 */
@@ -106,6 +104,29 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* adcHandle)
   /* USER CODE END ADC1_MspDeInit 1 */
   }
 } 
+
+uint16_t Get_Adc(uint32_t ch) {
+	ADC_ChannelConfTypeDef sConfig;
+	sConfig.Channel = ch;
+	sConfig.Rank = 1;
+	sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+	HAL_ADC_ConfigChannel(&hadc1, &sConfig);
+	HAL_ADC_Start(&hadc1);
+	//HAL_Delay(5);
+	return HAL_ADC_GetValue(&hadc1);
+}
+
+uint16_t Get_Adc_Average(uint32_t ch, uint8_t times)
+{
+	uint32_t temp_val = 0;
+	uint8_t t;
+	for (t = 0; t<times; t++)
+	{
+		temp_val += Get_Adc(ch);
+	}
+	return temp_val / times;
+}
+
 
 /* USER CODE BEGIN 1 */
 
