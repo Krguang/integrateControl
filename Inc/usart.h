@@ -57,8 +57,8 @@ extern UART_HandleTypeDef huart2;
 /* USER CODE BEGIN Private defines */
 
 struct buffer {									//定义接收缓存结构体
-	unsigned char BufferArray[256];
-	unsigned char BufferLen;
+	uint8_t BufferArray[256];
+	uint8_t BufferLen;
 };
 
 extern struct buffer Usart1ReceiveBuffer, Usart2ReceiveBuffer;

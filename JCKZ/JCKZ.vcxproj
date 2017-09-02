@@ -130,6 +130,7 @@
     <ClInclude Include="..\..\..\..\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F1xxxx\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h" />
     <ClInclude Include="..\Inc\adc.h" />
     <ClInclude Include="..\Inc\dac.h" />
+    <ClInclude Include="..\Inc\dataProcessing.h" />
     <ClInclude Include="..\Inc\dimmer.h" />
     <ClInclude Include="..\Inc\gasCollect.h" />
     <ClInclude Include="..\Inc\gpio.h" />
@@ -188,6 +189,7 @@
     <ClCompile Include="..\..\..\..\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F1xxxx\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_usb.c" />
     <ClCompile Include="..\Src\adc.c" />
     <ClCompile Include="..\Src\dac.c" />
+    <ClCompile Include="..\Src\dataProcessing.c" />
     <ClCompile Include="..\Src\dimmer.c" />
     <ClCompile Include="..\Src\gasCollect.c" />
     <ClCompile Include="..\Src\gpio.c" />

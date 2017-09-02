@@ -69,7 +69,7 @@ void SystemClock_Config(void);
 
 /* USER CODE BEGIN 0 */
 
-void serial_put_uint(unsigned int number)
+void serial_put_uint(uint16_t number)
 {
 	uint16_t i;
 	uint16_t nTmp;
@@ -118,37 +118,50 @@ int main(void)
 	MX_I2C1_Init();
 
 	/* USER CODE BEGIN 2 */
-	uint8_t a[] = {0x11,0x22,0x33,0x44,0x55,0x66};
-	uint8_t *b = "hello";
-	
+	uint8_t tempArray[50];
 
-	
-
+	localData[0] = 0x1234;
+	localData[1] = 0x2345;
+	localData[2] = 0x3456;
+	localData[3] = 0x4567;
 	dimmer();
 	int i = 0;
+	uint8_t sendMasterCount;
 
 	/* USER CODE END 2 */
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
 	while (1)
 	{
+	//	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, GPIO_PIN_SET);
 		
 		/* USER CODE END WHILE */
 		if (tim6Flag)
 		{
 			tim6Flag = 0;
 			UsartRxMonitor();
+			sendMasterCount++;
+			if (sendMasterCount==100) sendDataMaster03();
+			if (sendMasterCount==200) sendDataMaster16();
+			if (sendMasterCount > 200) {
+				sendMasterCount = 0;
+				HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_2);
+			}
 		}
 
 		/* USER CODE BEGIN 3 */
 		
 		i++;
-		if (i>500000)
+		if (i>5000000)
 		{
 			i = 0;
-			HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_2);
-			serial_put_uint((uint16_t)Get_Adc_Average(ADC_CHANNEL_1, 10));
-			HAL_UART_Transmit(&huart1, "\r\n", 4, 0xff);
+			
+			for (uint8_t i = 0; i < 13; i++)
+			{
+				tempArray[i*2+1] = (uint8_t)localData[i] & 0xff;
+				tempArray[i*2] = (uint8_t)(localData[i]>>8);
+			}
+			HAL_UART_Transmit(&huart2, tempArray, 26, 0xff);
 		}
 
 	}
