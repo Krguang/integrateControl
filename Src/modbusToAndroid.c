@@ -3,11 +3,9 @@
 
 uint8_t SlaveAdd = 1;
 
+uint16_t localData[50];
 uint8_t txBuf[50];
 uint8_t txCount = 0;
-
-uint16_t localData[50];
-
 
 uint16_t GetCRC16(uint8_t *arr_buff, uint8_t len) {  //CRCÐ£Ñé³ÌÐò
 	uint16_t crc = 0xFFFF;

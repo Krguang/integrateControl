@@ -137,6 +137,7 @@
     <ClInclude Include="..\Inc\modbusToAndroid.h" />
     <ClInclude Include="..\Inc\stm32f1xx_hal_conf.h" />
     <ClInclude Include="..\Inc\stm32f1xx_it.h" />
+    <ClInclude Include="..\Inc\systemClock.h" />
     <ClInclude Include="..\Inc\tim.h" />
     <ClInclude Include="..\Inc\usart.h" />
   </ItemGroup>
@@ -194,6 +195,7 @@
     <ClCompile Include="..\Src\modbusToAndroid.c" />
     <ClCompile Include="..\Src\stm32f1xx_hal_msp.c" />
     <ClCompile Include="..\Src\stm32f1xx_it.c" />
+    <ClCompile Include="..\Src\systemClock.c" />
     <ClCompile Include="..\Src\system_stm32f1xx.c" />
     <ClCompile Include="..\Src\tim.c" />
     <ClCompile Include="..\Src\usart.c" />
