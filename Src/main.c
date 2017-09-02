@@ -45,8 +45,7 @@
 #include "usart.h"
 #include "gpio.h"
 #include "modbusToAndroid.h"
-#include "dimmer.h"
-#include "gasCollect.h"
+#include "dataProcessing.h"
 
 /* USER CODE BEGIN Includes */
 
@@ -120,11 +119,6 @@ int main(void)
 	/* USER CODE BEGIN 2 */
 	uint8_t tempArray[50];
 
-	localData[0] = 0x1234;
-	localData[1] = 0x2345;
-	localData[2] = 0x3456;
-	localData[3] = 0x4567;
-	dimmer();
 	int i = 0;
 	uint8_t sendMasterCount;
 
@@ -134,7 +128,7 @@ int main(void)
 	while (1)
 	{
 	//	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, GPIO_PIN_SET);
-		
+		dataProcessing();
 		/* USER CODE END WHILE */
 		if (tim6Flag)
 		{
@@ -150,7 +144,7 @@ int main(void)
 		}
 
 		/* USER CODE BEGIN 3 */
-		
+		/*
 		i++;
 		if (i>5000000)
 		{
@@ -161,8 +155,9 @@ int main(void)
 				tempArray[i*2+1] = (uint8_t)localData[i] & 0xff;
 				tempArray[i*2] = (uint8_t)(localData[i]>>8);
 			}
-			HAL_UART_Transmit(&huart2, tempArray, 26, 0xff);
+			//HAL_UART_Transmit(&huart2, tempArray, 26, 0xff);
 		}
+		*/
 
 	}
 	/* USER CODE END 3 */
