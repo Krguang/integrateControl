@@ -127,3 +127,17 @@ uint16_t Get_Adc_Average(uint32_t ch, uint8_t times)
 	return temp_val / times;
 }
 
+
+/* USER CODE BEGIN 1 */
+
+/* USER CODE END 1 */
+
+/**
+  * @}
+  */
+
+/**
+  * @}
+  */
+
+/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

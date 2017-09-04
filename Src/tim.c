@@ -52,13 +52,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	if (htim == (&htim6))
 	{
-		tim6Count++;
-		if (tim6Count>5)
-		{
-			tim6Count = 0;
-			tim6Flag = 1;
-		}
-		
+		tim6Flag = 1;
 	}
 	else if (htim == (&htim7)) {
 		
