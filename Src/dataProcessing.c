@@ -1,6 +1,7 @@
 #include "dataProcessing.h"
 #include "modbusToAndroid.h"
 #include "dac.h"
+#include "adc.h"
 
 static void backgroundMusic() {
 
@@ -246,13 +247,13 @@ static void gasCollect() {
 
 	uint16_t gasTemp[7];
 
-	gasTemp[0] = Get_Adc_Average(ADC_CHANNEL_0, 10);
-	gasTemp[1] = Get_Adc_Average(ADC_CHANNEL_1, 10);
-	gasTemp[2] = Get_Adc_Average(ADC_CHANNEL_2, 10);
-	gasTemp[3] = Get_Adc_Average(ADC_CHANNEL_3, 10);
-	gasTemp[4] = Get_Adc_Average(ADC_CHANNEL_6, 10);
-	gasTemp[5] = Get_Adc_Average(ADC_CHANNEL_7, 10);
-	gasTemp[6] = Get_Adc_Average(ADC_CHANNEL_8, 10);
+	gasTemp[0] = Get_Adc_Average(ADC_CHANNEL_0, 5);
+	gasTemp[1] = Get_Adc_Average(ADC_CHANNEL_1, 5);
+	gasTemp[2] = Get_Adc_Average(ADC_CHANNEL_2, 5);
+	gasTemp[3] = Get_Adc_Average(ADC_CHANNEL_3, 5);
+	gasTemp[4] = Get_Adc_Average(ADC_CHANNEL_6, 5);
+	gasTemp[5] = Get_Adc_Average(ADC_CHANNEL_7, 5);
+	gasTemp[6] = Get_Adc_Average(ADC_CHANNEL_8, 5);
 
 	for (uint8_t i = 0; i < 7; i++)
 	{
@@ -264,7 +265,7 @@ static void gasCollect() {
 		{
 			gasTemp[i] = 4010;
 		}
-		localData[6+i] = (uint16_t)(gasTemp[i] - 760)*1000.0 / 3250.0;
+		localData[6+i] = (uint16_t)(gasTemp[i] - 760)*999.0 / 3250.0;
 	}
 }
 

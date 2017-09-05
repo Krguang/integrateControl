@@ -53,7 +53,7 @@
 
 extern UART_HandleTypeDef huart1;
 extern UART_HandleTypeDef huart2;
-
+extern uint8_t ReceiveState;
 /* USER CODE BEGIN Private defines */
 
 struct buffer {									//定义接收缓存结构体

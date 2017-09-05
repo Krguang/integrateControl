@@ -38,7 +38,7 @@ void sendDataMaster03() {
 	txBuf[6] = (uint8_t)(temp & 0xff);
 	txBuf[7] = (uint8_t)(temp >> 8);
 	txCount = 8;
-	HAL_UART_Transmit(&huart1, txBuf, txCount, 0xff);
+	HAL_UART_Transmit(&huart1, txBuf, txCount, 0xffff);
 }
 
 void sendDataMaster16() {
@@ -61,7 +61,7 @@ void sendDataMaster16() {
 	txBuf[7 + 2 * txBuf[5]] = (uint8_t)(temp & 0xff);
 	txBuf[8 + 2 * txBuf[5]] = (uint8_t)((temp >> 8) & 0xff);
 	txCount = 9 + 2 * txBuf[5];
-	HAL_UART_Transmit(&huart1, txBuf, txCount, 0xff);
+	HAL_UART_Transmit(&huart1, txBuf, txCount, 0xffff);
 }
 
 void ModbusDecode(uint8_t *MDbuf, uint8_t len) {
@@ -83,6 +83,7 @@ void ModbusDecode(uint8_t *MDbuf, uint8_t len) {
 	}
 }
 
+/*
 void UsartRxMonitor() {
 	static uint8_t ArrayLenTemp;					//存储接收缓存数组上一次长度，用以判断数组长度是否出现变化
 	static uint8_t BusIdleCount;					//总线空闲计数
@@ -98,7 +99,8 @@ void UsartRxMonitor() {
 				if (BusIdleCount >= 4) {					//如果空闲计时>=4
 					BusIdleCount = 0;						//空闲计时置零
 					HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_1);
-					ModbusDecode(Usart1ReceiveBuffer.BufferArray, Usart1ReceiveBuffer.BufferLen);	//解码
+				//	ModbusDecode(Usart1ReceiveBuffer.BufferArray, Usart1ReceiveBuffer.BufferLen);	//解码
+					HAL_UART_Transmit(&huart1, Usart1ReceiveBuffer.BufferArray, Usart1ReceiveBuffer.BufferLen, 0xff);
 					Usart1ReceiveBuffer.BufferLen = 0;											//用完后，缓存数组长度清零
 				}
 			}
@@ -106,3 +108,4 @@ void UsartRxMonitor() {
 	}
 	else ArrayLenTemp = 0;
 }
+*/

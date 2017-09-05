@@ -6,7 +6,7 @@
 
 extern unsigned short localData[];
 
-void UsartRxMonitor();
+void ModbusDecode(uint8_t *, uint8_t);
 void sendDataMaster03();
 void sendDataMaster16();
 

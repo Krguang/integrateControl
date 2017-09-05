@@ -66,7 +66,7 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* adcHandle)
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-	HAL_NVIC_SetPriority(ADC1_2_IRQn, 0, 0);
+	HAL_NVIC_SetPriority(ADC1_2_IRQn, 4, 4);
 	HAL_NVIC_EnableIRQ(ADC1_2_IRQn);
   /* USER CODE BEGIN ADC1_MspInit 1 */
 
@@ -112,7 +112,10 @@ uint16_t Get_Adc(uint32_t ch) {
 	sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
 	HAL_ADC_ConfigChannel(&hadc1, &sConfig);
 	HAL_ADC_Start(&hadc1);
-	//HAL_Delay(5);
+	for (uint16_t i = 0; i < 100; i++)
+	{
+		__ASM("NOP");
+	}
 	return HAL_ADC_GetValue(&hadc1);
 }
 
@@ -127,17 +130,3 @@ uint16_t Get_Adc_Average(uint32_t ch, uint8_t times)
 	return temp_val / times;
 }
 
-
-/* USER CODE BEGIN 1 */
-
-/* USER CODE END 1 */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
