@@ -83,29 +83,12 @@ void ModbusDecode(uint8_t *MDbuf, uint8_t len) {
 	}
 }
 
-/*
 void UsartRxMonitor() {
-	static uint8_t ArrayLenTemp;					//存储接收缓存数组上一次长度，用以判断数组长度是否出现变化
-	static uint8_t BusIdleCount;					//总线空闲计数
-	
-	if (Usart1ReceiveBuffer.BufferLen > 0) {
-		if (ArrayLenTemp != Usart1ReceiveBuffer.BufferLen) {		//如果此次数组长度与上次不同
-			ArrayLenTemp = Usart1ReceiveBuffer.BufferLen;		//此次数组长度赋值给上次
-			BusIdleCount = 0;								//清零空闲计时
-		}
-		else {											//如果此次数组长度与上次相同
-			if (BusIdleCount < 4) {
-				BusIdleCount++;							//总线空闲计时+1
-				if (BusIdleCount >= 4) {					//如果空闲计时>=4
-					BusIdleCount = 0;						//空闲计时置零
-					HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_1);
-				//	ModbusDecode(Usart1ReceiveBuffer.BufferArray, Usart1ReceiveBuffer.BufferLen);	//解码
-					HAL_UART_Transmit(&huart1, Usart1ReceiveBuffer.BufferArray, Usart1ReceiveBuffer.BufferLen, 0xff);
-					Usart1ReceiveBuffer.BufferLen = 0;											//用完后，缓存数组长度清零
-				}
-			}
-		}
+	if (ReceiveState)
+	{
+		HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_1);
+		ModbusDecode(Usart1ReceiveBuffer.BufferArray, Usart1ReceiveBuffer.BufferLen);
+		Usart1ReceiveBuffer.BufferLen = 0;
+		ReceiveState = 0;
 	}
-	else ArrayLenTemp = 0;
 }
-*/

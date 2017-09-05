@@ -1,21 +1,12 @@
 
 #include "adc.h"
-
 #include "gpio.h"
-
-/* USER CODE BEGIN 0 */
-
-/* USER CODE END 0 */
 
 ADC_HandleTypeDef hadc1;
 
 /* ADC1 init function */
 void MX_ADC1_Init(void)
 {
-  //ADC_ChannelConfTypeDef sConfig;
-
-    /**Common config 
-    */
   hadc1.Instance = ADC1;
   hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
   hadc1.Init.ContinuousConvMode = DISABLE;
@@ -24,16 +15,6 @@ void MX_ADC1_Init(void)
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
   hadc1.Init.NbrOfConversion = 1;
   HAL_ADC_Init(&hadc1);
-
-    /**Configure Regular Channel 
-    */
-
-  /*
-  sConfig.Channel = ADC_CHANNEL_0;
-  sConfig.Rank = 1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
-  HAL_ADC_ConfigChannel(&hadc1, &sConfig);
-  */
 }
 
 void HAL_ADC_MspInit(ADC_HandleTypeDef* adcHandle)
