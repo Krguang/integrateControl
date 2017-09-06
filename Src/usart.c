@@ -130,7 +130,7 @@ void USART1_IRQHandler(void)
 	if (__HAL_UART_GET_FLAG(&huart1, UART_FLAG_IDLE) != RESET)
 	{
 		Clear = huart1.Instance->SR;
-		Clear = huart1.Instance->DR;
+		Clear = huart1.Instance->DR;//通过读SR，DR清除IDLE中断
 		ReceiveState = 1;
 	}
 
