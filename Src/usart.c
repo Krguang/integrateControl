@@ -121,7 +121,6 @@ void USART1_IRQHandler(void)
 {
 	uint8_t Clear = Clear;
 
-
 	if (__HAL_UART_GET_FLAG(&huart1, UART_FLAG_RXNE) != RESET)
 	{
 		Usart1ReceiveBuffer.BufferArray[Usart1ReceiveBuffer.BufferLen++] = huart1.Instance->DR;
@@ -133,7 +132,7 @@ void USART1_IRQHandler(void)
 		Clear = huart1.Instance->DR;//通过读SR，DR清除IDLE中断
 		ReceiveState = 1;
 	}
-
+	
 }
 
 void USART2_IRQHandler(void)
