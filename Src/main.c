@@ -19,10 +19,8 @@ int main(void)
 	MX_DAC_Init();
 	MX_ADC1_Init();
 	MX_USART1_UART_Init();
-//	MX_USART2_UART_Init();
 	MX_TIM6_Init();
-//	MX_TIM7_Init();
-//	MX_I2C1_Init();
+
 
 	uint16_t sendMasterCount;
 
