@@ -49,6 +49,8 @@
 
 /* USER CODE BEGIN Includes */
 
+extern uint16_t ADC_ConvertedValue[];
+extern uint32_t ADC_Average[];
 /* USER CODE END Includes */
 
 extern ADC_HandleTypeDef hadc1;
@@ -57,10 +59,9 @@ extern ADC_HandleTypeDef hadc1;
 
 /* USER CODE END Private defines */
 
-extern void _Error_Handler(char *, int);
 
 void MX_ADC1_Init(void);
-uint16_t Get_Adc_Average(uint32_t, uint8_t);
+
 
 /* USER CODE BEGIN Prototypes */
 

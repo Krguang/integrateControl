@@ -7,6 +7,7 @@
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
+#include "dma.h"
 #include "systemClock.h"
 #include "modbusToAndroid.h"
 #include "dataProcessing.h"
@@ -16,13 +17,16 @@ int main(void)
 	HAL_Init();
 	SystemClock_Config();
 	MX_GPIO_Init();
+	MX_DMA_Init();
 	MX_DAC_Init();
 	MX_ADC1_Init();
 	MX_USART1_UART_Init();
 	MX_TIM6_Init();
 
-
 	uint16_t sendMasterCount;
+
+	HAL_ADCEx_Calibration_Start(&hadc1);
+	HAL_ADC_Start_DMA(&hadc1, ADC_ConvertedValue, 7);
 
 	while (1)
 	{

@@ -131,6 +131,7 @@
     <ClInclude Include="..\Inc\adc.h" />
     <ClInclude Include="..\Inc\dac.h" />
     <ClInclude Include="..\Inc\dataProcessing.h" />
+    <ClInclude Include="..\Inc\dma.h" />
     <ClInclude Include="..\Inc\gpio.h" />
     <ClInclude Include="..\Inc\i2c.h" />
     <ClInclude Include="..\Inc\main.h" />
@@ -189,6 +190,7 @@
     <ClCompile Include="..\Src\adc.c" />
     <ClCompile Include="..\Src\dac.c" />
     <ClCompile Include="..\Src\dataProcessing.c" />
+    <ClCompile Include="..\Src\dma.c" />
     <ClCompile Include="..\Src\gpio.c" />
     <ClCompile Include="..\Src\i2c.c" />
     <ClCompile Include="..\Src\main.c" />

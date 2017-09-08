@@ -2,6 +2,7 @@
 #include "modbusToAndroid.h"
 #include "dac.h"
 #include "adc.h"
+#include "usart.h"
 
 static void backgroundMusic() {
 
@@ -233,8 +234,24 @@ static void voltageOutput() {
 
 static void gasCollect() {
 
-	uint16_t gasTemp[7];
+	
 
+	
+
+	for (uint8_t i = 0; i < 10; i++)
+	{
+		for (uint8_t j = 0; j < 7; j++) {
+			ADC_Average[j] += ADC_ConvertedValue[j];
+		}
+	}
+
+	for (uint8_t i = 0; i < 7; i++)
+	{
+		localData[6 + i] = (uint16_t)(ADC_Average[i]/10);
+	}
+
+	/*
+	uint16_t gasTemp[7];
 	gasTemp[0] = Get_Adc_Average(ADC_CHANNEL_0, 5);
 	gasTemp[1] = Get_Adc_Average(ADC_CHANNEL_1, 5);
 	gasTemp[2] = Get_Adc_Average(ADC_CHANNEL_2, 5);
@@ -242,7 +259,9 @@ static void gasCollect() {
 	gasTemp[4] = Get_Adc_Average(ADC_CHANNEL_6, 5);
 	gasTemp[5] = Get_Adc_Average(ADC_CHANNEL_7, 5);
 	gasTemp[6] = Get_Adc_Average(ADC_CHANNEL_8, 5);
+	
 
+	
 	for (uint8_t i = 0; i < 7; i++)
 	{
 		if (gasTemp[i]<760)
@@ -255,6 +274,8 @@ static void gasCollect() {
 		}
 		localData[6+i] = (uint16_t)(gasTemp[i] - 760)*999.0 / 3250.0;
 	}
+
+	*/
 }
 
 

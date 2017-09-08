@@ -278,6 +278,9 @@
     <ClInclude Include="..\Inc\systemClock.h">
       <Filter>Header files\Inc</Filter>
     </ClInclude>
+    <ClInclude Include="..\Inc\dma.h">
+      <Filter>Header files\Inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Src\adc.c">
@@ -449,6 +452,9 @@
       <Filter>Source files\Src</Filter>
     </ClCompile>
     <ClCompile Include="..\Src\systemClock.c">
+      <Filter>Source files\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\dma.c">
       <Filter>Source files\Src</Filter>
     </ClCompile>
   </ItemGroup>
