@@ -77,21 +77,21 @@
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
 		</link><link>
-			<name>Drivers</name>
+			
 			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
+			
 		</link><link>
-			<name>Application/TrueSTUDIO</name>
+			
 			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
+			
 		</link><link>
-			<name>Application</name>
+			
 			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
+			
 		</link><link>
-			<name>Drivers/CMSIS</name>
+			
 			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
+			
 		</link><link>
 			<name>Drivers/STM32F1xx_HAL_Driver/stm32f1xx_hal_tim.c</name>
 			<type>1</type>
@@ -164,5 +164,85 @@
 			<name>Drivers/STM32F1xx_HAL_Driver/stm32f1xx_hal_flash_ex.c</name>
 			<type>1</type>
 			<location>C:/Users/K/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.0/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c</location>
+		</link><link>
+			
+			<type>2</type>
+			
+		</link><link>
+			
+			<type>2</type>
+			
+		</link><link>
+			
+			<type>2</type>
+			
+		</link><link>
+			
+			<type>2</type>
+			
+		</link><link>
+			<name>Middlewares/FreeRTOS</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link><link>
+			
+			<type>2</type>
+			
+		</link><link>
+			<name>Middlewares/FreeRTOS/cmsis_os.c</name>
+			<type>1</type>
+			<location>C:/Users/K/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.0/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c</location>
+		</link><link>
+			<name>Middlewares/FreeRTOS/port.c</name>
+			<type>1</type>
+			<location>C:/Users/K/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.0/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c</location>
+		</link><link>
+			<name>Middlewares/FreeRTOS/timers.c</name>
+			<type>1</type>
+			<location>C:/Users/K/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.0/Middlewares/Third_Party/FreeRTOS/Source/timers.c</location>
+		</link><link>
+			<name>Middlewares/FreeRTOS/croutine.c</name>
+			<type>1</type>
+			<location>C:/Users/K/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.0/Middlewares/Third_Party/FreeRTOS/Source/croutine.c</location>
+		</link><link>
+			<name>Middlewares/FreeRTOS/queue.c</name>
+			<type>1</type>
+			<location>C:/Users/K/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.0/Middlewares/Third_Party/FreeRTOS/Source/queue.c</location>
+		</link><link>
+			<name>Middlewares/FreeRTOS/tasks.c</name>
+			<type>1</type>
+			<location>C:/Users/K/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.0/Middlewares/Third_Party/FreeRTOS/Source/tasks.c</location>
+		</link><link>
+			<name>Middlewares/FreeRTOS/list.c</name>
+			<type>1</type>
+			<location>C:/Users/K/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.0/Middlewares/Third_Party/FreeRTOS/Source/list.c</location>
+		</link><link>
+			<name>Middlewares/FreeRTOS/event_groups.c</name>
+			<type>1</type>
+			<location>C:/Users/K/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.0/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c</location>
+		</link><link>
+			<name>Middlewares/FreeRTOS/heap_4.c</name>
+			<type>1</type>
+			<location>C:/Users/K/STM32Cube/Repository/STM32Cube_FW_F1_V1.6.0/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c</location>
+		</link><link>
+			<name>Middlewares</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link><link>
+			<name>Drivers</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link><link>
+			<name>Application/TrueSTUDIO</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link><link>
+			<name>Application</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link><link>
+			<name>Drivers/CMSIS</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
 		</link></linkedResources>
 </projectDescription>
