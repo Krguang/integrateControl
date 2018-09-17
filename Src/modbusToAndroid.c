@@ -86,7 +86,7 @@ void ModbusDecode(uint8_t *MDbuf, uint8_t len) {
 void UsartRxMonitor() {
 	if (ReceiveState)
 	{
-		HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_1);
+		
 		ModbusDecode(Usart1ReceiveBuffer.BufferArray, Usart1ReceiveBuffer.BufferLen);
 		Usart1ReceiveBuffer.BufferLen = 0;
 		ReceiveState = 0;

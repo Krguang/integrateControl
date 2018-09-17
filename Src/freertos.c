@@ -129,7 +129,7 @@ void FuncModbusRec(void const * argument)
   for(;;)
   {
 	  UsartRxMonitor();
-	  osDelay(10);
+	 // osDelay(10);
   }
   /* USER CODE END FuncModbusRec */
 }
@@ -142,7 +142,7 @@ void FuncDataProc(void const * argument)
   for(;;)
   {
 	  dataProcessing();
-	  osDelay(10);
+	  //osDelay(10);
   }
   /* USER CODE END FuncDataProc */
 }
@@ -159,6 +159,7 @@ void FuncModbusSend(void const * argument)
 	  sendDataMaster16();
 	  osDelay(100);
 	  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_2);
+	  
   }
   /* USER CODE END FuncModbusSend */
 }

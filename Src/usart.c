@@ -58,7 +58,7 @@ struct buffer Usart1ReceiveBuffer, Usart2ReceiveBuffer;
 
 uint8_t Usart1rdata[1];
 uint8_t Usart2rdata[1];
-uint8_t ReceiveState = 0;
+volatile uint8_t ReceiveState = 0;
 
 /* USER CODE END 0 */
 
@@ -114,7 +114,8 @@ void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
     HAL_NVIC_SetPriority(USART1_IRQn, 5, 0);
     HAL_NVIC_EnableIRQ(USART1_IRQn);
   /* USER CODE BEGIN USART1_MspInit 1 */
-
+	__HAL_UART_ENABLE_IT(&huart1, UART_IT_RXNE);
+	__HAL_UART_ENABLE_IT(&huart1, UART_IT_IDLE);
   /* USER CODE END USART1_MspInit 1 */
   }
 }
@@ -161,6 +162,7 @@ void USART1_IRQHandler(void)
 		Clear = huart1.Instance->SR;
 		Clear = huart1.Instance->DR;
 		ReceiveState = 1;
+		HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_1);
 	}
 
 }

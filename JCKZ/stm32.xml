@@ -1,8 +1,11 @@
 <?xml version="1.0"?>
 <EmbeddedProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ToolchainID>com.visualgdb.arm-eabi</ToolchainID>
+  <ToolchainVersion>
+    <Revision>0</Revision>
+  </ToolchainVersion>
   <BspID>com.sysprogs.arm.stm32</BspID>
-  <BspVersion>4.3</BspVersion>
+  <BspVersion>2018.08</BspVersion>
   <McuID>STM32F103VC</McuID>
   <MCUDefinitionFile>STM32F1xxxx/DeviceDefinitions/stm32f103xe.xml</MCUDefinitionFile>
   <MCUProperties>
@@ -35,7 +38,7 @@
     <Entries>
       <KeyValue>
         <Key>com.sysprogs.bspoptions.stm32.hal_legacy</Key>
-        <Value>USE_HAL_LEGACY </Value>
+        <Value>USE_HAL_LEGACY</Value>
       </KeyValue>
       <KeyValue>
         <Key>com.sysprogs.bspoptions.stm32.freertos.heap</Key>
